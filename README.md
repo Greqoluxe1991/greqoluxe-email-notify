@@ -1,2 +1,2 @@
 # greqoluxe-email-notify
-greqoluxe_shopify_notifer
+this project notify greqoluxe owner when client hit request a quote button
