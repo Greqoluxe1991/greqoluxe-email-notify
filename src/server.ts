@@ -6,13 +6,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const app = express();
-
-app.use(cors({
-  origin: ["https://www.greqoluxe.com", "https://greqoluxe.myshopify.com"],
-  methods: ["GET", "POST", "OPTIONS"],
-  allowedHeaders: ["Content-Type"],
-  credentials: true,  // Allow cookies and credentials if needed
-}));
+app.use(cors()); 
 app.use(express.json());
 
 const transporter = nodemailer.createTransport({
