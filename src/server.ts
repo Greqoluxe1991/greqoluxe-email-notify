@@ -1,5 +1,6 @@
 import express from "express";
 import type { Request, Response } from "express";
+import * as cors from 'cors';
 import nodemailer from "nodemailer";
 import dotenv from "dotenv";
 
