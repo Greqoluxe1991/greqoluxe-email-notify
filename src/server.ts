@@ -1,13 +1,13 @@
 import express from "express";
 import type { Request, Response } from "express";
-import * as cors from 'cors';
+import cors from "cors";
 import nodemailer from "nodemailer";
 import dotenv from "dotenv";
 
 dotenv.config();
 
 const app = express();
-app.use(cors()); 
+app.use(cors());
 app.use(express.json());
 
 const transporter = nodemailer.createTransport({
@@ -22,11 +22,11 @@ const transporter = nodemailer.createTransport({
 });
 
 app.post("/send-email", async (req: Request, res: Response) => {
-  const {to:process.env.EMAIL_TO , subject, text, html } = req.body;
+  const { subject, text, html } = req.body;
   try {
     await transporter.sendMail({
       from: `"GreqoLuxe" <${process.env.EMAIL_USER}>`,
-      to,
+      to: process.env.EMAIL_TO,
       subject,
       text,
       html,
