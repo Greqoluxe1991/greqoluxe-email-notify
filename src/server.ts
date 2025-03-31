@@ -7,13 +7,12 @@ dotenv.config();
 
 const app = express();
 
-app.use(
-  cors({
-    origin: ["https://www.greqoluxe.com", "https://greqoluxe.myshopify.com"], // Add all your store URLs
-    methods: ["POST"], // Restrict to POST if that's the only method you use
-    allowedHeaders: ["Content-Type"], // Restrict to necessary headers
-  }),
-);
+app.use(cors({
+  origin: ["https://www.greqoluxe.com", "https://greqoluxe.myshopify.com"],
+  methods: ["GET", "POST", "OPTIONS"],
+  allowedHeaders: ["Content-Type"],
+  credentials: true,  // Allow cookies and credentials if needed
+}));
 app.use(express.json());
 
 const transporter = nodemailer.createTransport({
