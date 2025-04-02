@@ -41,8 +41,13 @@ export const sendEmailToGreqoluxe = asyncHandler(
       const firstName = nameSplit[0];
       const lastName = nameSplit.splice(1).join(" ");
 
-      console.log({ firstName, lastName });
-      await createShopifyCustomerController({ firstName, lastName, email,phone });
+      console.log({ firstName, lastName, product_id });
+      await createShopifyCustomerController({
+        firstName,
+        lastName,
+        email,
+        phone,
+      });
 
       res.status(200).send({ message: "Email sent successfully!" });
     } catch (error) {
